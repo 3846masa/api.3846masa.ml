@@ -8,8 +8,6 @@ services:
     environment:
       VIRTUAL_HOST: api.3846masa.ml
       VIRTUAL_PORT: 80
-    ports:
-      - "80:80"
     network_mode: bridge
     restart: always
   device_battery:
