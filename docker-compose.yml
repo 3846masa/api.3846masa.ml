@@ -23,13 +23,13 @@ services:
     network_mode: bridge
     restart: always
 
-  device_battery:
-    build: ./device-battery
+  phone_battery:
+    build: ./phone-battery
     env_file:
-      - "./envs/device-battery.env"
+      - "./envs/phone-battery.env"
     environment:
       # SECRET_KEY: ""
-      VIRTUAL_DIRECTORY: "device/battery"
+      VIRTUAL_DIRECTORY: "phone/battery"
       VIRTUAL_PORT: 3000
       PORT: 3000
     network_mode: bridge
