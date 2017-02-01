@@ -1,23 +1,39 @@
 version: "3"
 services:
-  proxy:
-    image: theit8514/nginx-proxy-subdirectory
+  proxy_nginx:
+    image: nginx:alpine
+    container_name: api_proxy_nginx
     volumes:
       - "./htpasswd:/etc/nginx/htpasswd"
-      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - "proxy:/etc/nginx/conf.d"
     environment:
       VIRTUAL_HOST: api.3846masa.ml
       VIRTUAL_PORT: 80
     network_mode: bridge
     restart: always
+
+  proxy_dockergen:
+    image: jwilder/docker-gen
+    command: -notify-sighup api_proxy_nginx -watch /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
+    volumes:
+      - "./htpasswd:/etc/nginx/htpasswd"
+      - "proxy:/etc/nginx/conf.d"
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - "./nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro"
+    network_mode: bridge
+    restart: always
+
   device_battery:
     build: ./device-battery
     env_file:
       - "./envs/device-battery.env"
     environment:
       # SECRET_KEY: ""
-      NGINX_PROXY_SUBDIRECTORY: "device/battery"
+      VIRTUAL_DIRECTORY: "device/battery"
       VIRTUAL_PORT: 3000
       PORT: 3000
     network_mode: bridge
     restart: always
+
+volumes:
+  proxy:
