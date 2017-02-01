@@ -3,7 +3,7 @@ services:
   proxy:
     image: theit8514/nginx-proxy-subdirectory
     volumes:
-      - "/data/proxy/htpasswd:/etc/nginx/htpasswd"
+      - "./htpasswd:/etc/nginx/htpasswd"
       - "/var/run/docker.sock:/tmp/docker.sock:ro"
     environment:
       VIRTUAL_HOST: api.3846masa.ml
