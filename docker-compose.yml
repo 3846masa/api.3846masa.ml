@@ -1,0 +1,23 @@
+version: "3"
+services:
+  proxy:
+    image: theit8514/nginx-proxy-subdirectory
+    volumes:
+      - "/data/proxy/htpasswd:/etc/nginx/htpasswd"
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+    environment:
+      VIRTUAL_HOST: api.3846masa.tk
+      VIRTUAL_PORT: 80
+    ports:
+      - "80:80"
+    network_mode: bridge
+    restart: always
+  device_battery:
+    build: ./device-battery
+    environment:
+      SECRET_KEY: ""
+      NGINX_PROXY_SUBDIRECTORY: "device/battery"
+      VIRTUAL_PORT: 3000
+      PORT: 3000
+    network_mode: bridge
+    restart: always
