@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const ENV = process.env;
 
@@ -6,6 +7,7 @@ let batteryStatus = {};
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
