@@ -14,8 +14,10 @@ services:
     restart: always
   device_battery:
     build: ./device-battery
+    env_file:
+      - "./envs/device-battery.env"
     environment:
-      SECRET_KEY: ""
+      # SECRET_KEY: ""
       NGINX_PROXY_SUBDIRECTORY: "device/battery"
       VIRTUAL_PORT: 3000
       PORT: 3000
