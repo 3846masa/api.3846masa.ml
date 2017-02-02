@@ -6,7 +6,7 @@ services:
       VIRTUAL_DIRECTORY: ""
       VIRTUAL_PORT: 3000
       PORT: 3000
-      SECRET_KEY: ""
+      # SECRET_KEY: ""
     network_mode: bridge
     restart: always
     mem_limit: 32M
