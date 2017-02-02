@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
   store_data:
     build: ./simple-store-data
@@ -9,6 +9,4 @@ services:
       SECRET_KEY: ""
     network_mode: bridge
     restart: always
-    resources:
-      limits:
-        memory: 32M
+    mem_limit: 32M
