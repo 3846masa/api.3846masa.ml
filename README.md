@@ -31,9 +31,13 @@ https://api.3846masa.ml/where
 {
   "status": "ok",
   "data": {
-    "lab": true,
-    "university": true,
-    "house": false
+    // unixtime
+    "last_modified": 1485975782,
+    "where": {
+      "lab": true,
+      "university": true,
+      "house": false
+    }
   }
 }
 ```
@@ -54,11 +58,13 @@ https://api.3846masa.ml/phone/battery
 {
   "status": "ok",
   "data": {
-    // Range 0 - 100
-    "power_level": 80,
-    "is_plagged": true,
     // unixtime
-    "last_modified": 1485975782
+    "last_modified": 1485975782,
+    "info": {
+      // Range 0 - 100
+      "power_level": 80,
+      "is_plagged": true
+    }
   }
 }
 ```
