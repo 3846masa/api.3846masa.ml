@@ -24,16 +24,22 @@ services:
     restart: always
 
   phone_battery:
-    build: ./phone-battery
+    extends:
+      file: ./docker-compose.extends.yml
+      service: store_data
     env_file:
       - "./envs/phone-battery.env"
     environment:
-      # SECRET_KEY: ""
       VIRTUAL_DIRECTORY: "phone/battery"
-      VIRTUAL_PORT: 3000
-      PORT: 3000
-    network_mode: bridge
-    restart: always
+
+  where:
+    extends:
+      file: ./docker-compose.extends.yml
+      service: store_data
+    env_file:
+      - "./envs/where.env"
+    environment:
+      VIRTUAL_DIRECTORY: "where"
 
 volumes:
   proxy:
