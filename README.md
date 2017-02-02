@@ -10,6 +10,7 @@ This is API about 3846masa.
 
 - [Table of Contents](#table-of-contents)
 - [API](#api)
+  - [Where](#where)
   - [Phone/Battery](#phonebattery)
 - [Contribute](#contribute)
 - [License](#license)
@@ -18,18 +19,38 @@ This is API about 3846masa.
 
 ## API
 
-### Phone/Battery
+### Where
 
-|        |                                    |
-|:------:|------------------------------------|
-| Source | [./phone-battery](./phone-battery) |
+#### GET | /where
+
+Return where is 3846masa's phone.
+
+https://api.3846masa.ml/where
+
+```js
+{
+  "status": "ok",
+  "data": {
+    "lab": true,
+    "university": true,
+    "house": false
+  }
+}
+```
+
+#### POST | /where?key={SECRTET_KEY}
+
+Update where info.
+
+### Phone/Battery
 
 #### GET | /phone/battery
 
 Battery info of 3846masa's phone.
 
+https://api.3846masa.ml/phone/battery
+
 ```js
-// https://api.3846masa.ml/phone/battery
 {
   "status": "ok",
   "data": {
