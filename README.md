@@ -63,7 +63,7 @@ https://api.3846masa.ml/phone/battery
     "info": {
       // Range 0 - 100
       "power_level": 80,
-      "is_plagged": true
+      "is_plugged": true
     }
   }
 }
