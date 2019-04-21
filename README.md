@@ -1,5 +1,7 @@
 # api.3846masa.ml
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/3846masa/api.3846masa.ml.svg)](https://greenkeeper.io/)
+
 > 3846masa API
 
 This is API about 3846masa.
