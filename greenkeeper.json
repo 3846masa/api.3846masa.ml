@@ -1,0 +1,9 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "simple-store-data/package.json"
+      ]
+    }
+  }
+}
